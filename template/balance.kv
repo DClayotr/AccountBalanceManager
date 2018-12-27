@@ -1,0 +1,61 @@
+<BalanceGridLayout>:
+    id: Balance
+    orientation: "vertical"
+    display: ChekingsEntry, SavingsEntry
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Label:
+            text:"Chekcings"
+        TextInput:
+            id: ChekingsEntry
+            font_size: 18
+            multiline: False
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Deposite"
+            size_hint_x: 15
+            on_press: Balance.Deposite(0, ChekingsEntry.text)
+            
+        Button:
+            text: "Withdraw"
+            size_hint_x: 15
+            on_press: Balance.withdraw(ChekingsEntry.text)
+            
+
+        Button:
+            text: "Transfer"
+            size_hint_x: 15
+            on_press: Balance.TransferIn(ChekingsEntry.text)
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Label:
+            text:"Savings"
+
+        TextInput:
+            id: SavingsEntry
+            font_size: 18
+            multiline: False
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text:"Deposite"
+            size_hint_x: 15
+            on_press: Balance.Deposite(1, SavingsEntry.text)
+            
+        
+        Button:
+            text: "Transfer"
+            size_hint_x: 15
+            on_press: Balance.TransferOut(SavingsEntry.text)
+            
